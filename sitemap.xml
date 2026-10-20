@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://YOUR-DOMAIN/</loc><priority>1.0</priority></url>
+<url><loc>https://YOUR-DOMAIN/games/</loc><priority>0.9</priority></url>
+<url><loc>https://YOUR-DOMAIN/games/love-match/</loc><priority>0.8</priority></url>
+<url><loc>https://YOUR-DOMAIN/games/loyalty-test/</loc><priority>0.7</priority></url>
+<url><loc>https://YOUR-DOMAIN/games/how-well/</loc><priority>0.7</priority></url>
+<url><loc>https://YOUR-DOMAIN/games/this-or-that/</loc><priority>0.7</priority></url>
+<url><loc>https://YOUR-DOMAIN/birthday-wishes/</loc><priority>0.8</priority></url>
+<url><loc>https://YOUR-DOMAIN/anniversary-wishes/</loc><priority>0.8</priority></url>
+<url><loc>https://YOUR-DOMAIN/gift-ideas/</loc><priority>0.8</priority></url>
+<url><loc>https://YOUR-DOMAIN/gift-ideas-for-boyfriend/</loc><priority>0.7</priority></url>
+<url><loc>https://YOUR-DOMAIN/gift-ideas-for-girlfriend/</loc><priority>0.7</priority></url>
+<url><loc>https://YOUR-DOMAIN/about/</loc><priority>0.3</priority></url>
+<url><loc>https://YOUR-DOMAIN/privacy/</loc><priority>0.2</priority></url>
+</urlset>
