@@ -26,3 +26,15 @@
 @keyframes game-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes heart-bob{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-5px) scale(1.06)}}
 @keyframes spin-glow{0%,100%{box-shadow:0 0 0 #f4c7dc}50%{box-shadow:0 0 22px #f4c7dc}}
+
+
+/* Truth or Dare wheel and sharing feedback */
+.truth-wheel{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:22px 16px;margin:18px 0;border-radius:22px;background:radial-gradient(circle at 50% 35%,#fff 0,#fff0f7 48%,#f0e9fb 100%);border:1px solid #f2d5e5;overflow:hidden}
+.wheel-names{display:flex;align-items:center;justify-content:center;gap:12px;color:#85456b;font-size:12px}
+.wheel-names span{font-size:20px;color:#d94f8a}
+.wheel-face{font-size:54px;line-height:1.25;filter:drop-shadow(0 7px 9px #c65d9430)}
+.truth-wheel.is-spinning .wheel-face{animation:truth-wheel-spin 1.15s cubic-bezier(.2,.8,.2,1) both}
+.truth-wheel>small{font-size:10px;letter-spacing:2px;font-weight:800;color:#9c527b;text-align:center}
+.game-toast{padding:10px 13px;border-radius:10px;background:#fce8f1;color:#88466d;font-size:12px}
+@keyframes truth-wheel-spin{0%{transform:rotate(0) scale(.85)}70%{transform:rotate(650deg) scale(1.12)}100%{transform:rotate(720deg) scale(1)}}
+@media(prefers-reduced-motion:reduce){.truth-wheel.is-spinning .wheel-face{animation:none}}
