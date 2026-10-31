@@ -13,6 +13,7 @@ declare
   v_row public.game_sessions%rowtype;
   v_hash text := encode(digest(p_participant_token,'sha256'),'hex');
   v_role text;
+  v_other_role text;
   v_result jsonb;
   v_score int := 0;
   v_total int := 0;
@@ -29,11 +30,12 @@ begin
   if v_row.creator_token_hash=v_hash then v_role:='creator';
   elsif v_row.partner_token_hash=v_hash then v_role:='partner';
   else raise exception 'Invalid participant token'; end if;
+  v_other_role:=case when v_role='creator' then 'partner' else 'creator' end;
 
   v_result:=v_row.loyalty_result;
   v_choices:=coalesce(v_row.game_state->'maze_choices','{}'::jsonb);
   v_my_count:=jsonb_array_length(coalesce(v_choices->v_role,'[]'::jsonb));
-  v_partner_count:=jsonb_array_length(coalesce(v_choices->case when v_role='creator' then 'partner' else 'creator' end,'[]'::jsonb));
+  v_partner_count:=jsonb_array_length(coalesce(v_choices->v_other_role,'[]'::jsonb));
   v_phase:=coalesce(v_row.game_state->>'loyalty_phase','setup');
   v_expected:=coalesce(v_row.game_state->'loyalty_expected','{}'::jsonb);
 
@@ -74,7 +76,7 @@ begin
     jsonb_build_object(
       'round',coalesce((v_row.game_state->>'round')::int,1),
       'loyalty_phase',v_phase,
-      'loyalty_expected',case when v_phase='guess' then v_expected->case when v_role='creator' then 'partner' else 'creator' end else null end,
+      'loyalty_expected',case when v_phase='guess' then v_expected->v_other_role else null end,
       'loyalty_round_results',coalesce(v_row.game_state->'loyalty_round_results','[]'::jsonb),
       'maze_choices',v_choices,
       'creator_submitted',v_row.creator_answers is not null,
@@ -98,6 +100,7 @@ declare
   v_row public.game_sessions%rowtype;
   v_hash text := encode(digest(p_participant_token,'sha256'),'hex');
   v_role text;
+  v_other_role text;
   v_type text := p_action->>'type';
   v_state jsonb;
   v_expected jsonb;
@@ -115,6 +118,7 @@ begin
   if v_row.creator_token_hash=v_hash then v_role:='creator';
   elsif v_row.partner_token_hash=v_hash then v_role:='partner';
   else raise exception 'Invalid participant token'; end if;
+  v_other_role:=case when v_role='creator' then 'partner' else 'creator' end;
   if v_row.partner_token_hash is null then raise exception 'Waiting for your partner to join'; end if;
   v_state:=coalesce(v_row.game_state,'{}'::jsonb);
 
@@ -132,7 +136,7 @@ begin
   elsif v_type='loyalty_answer' then
     if v_row.game_type<>'loyalty-test' or v_role<>v_row.turn_role
       or coalesce(v_state->>'loyalty_phase','setup')<>'guess' then raise exception 'It is not your turn to guess'; end if;
-    v_expected:=coalesce(v_state->'loyalty_expected'->case when v_role='creator' then 'partner' else 'creator' end,'{}'::jsonb);
+    v_expected:=coalesce(v_state->'loyalty_expected'->v_other_role,'{}'::jsonb);
     v_answers:=p_action->'answers';
     if jsonb_typeof(v_expected)<>'object' or jsonb_typeof(v_answers)<>'object'
       or (select count(*) from jsonb_object_keys(v_answers))<>5 then raise exception 'Answer all five questions'; end if;
