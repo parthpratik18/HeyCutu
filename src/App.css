@@ -3,3 +3,26 @@
 
 /* Wishes navigation dropdown */
 .nav-dropdown{position:relative;display:flex;align-items:center;height:100%}.nav-dropdown>a{display:inline-flex;align-items:center;min-height:44px}.nav-dropdown-menu{display:none;position:absolute;top:calc(100% - 8px);left:-14px;min-width:190px;padding:8px;background:#fffaf8;border:1px solid #f0e1e9;border-radius:14px;box-shadow:0 18px 40px #5c2d5017;z-index:30}.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:grid;gap:3px}.nav-dropdown-menu a{padding:11px 12px;border-radius:9px;white-space:nowrap;font-size:12px;font-weight:700}.nav-dropdown-menu a:hover{background:#fce8f0;color:#a72e68}@media(max-width:760px){.nav-dropdown{display:block;height:auto}.nav-dropdown>a{width:100%;padding:12px 0}.nav-dropdown-menu{position:static;display:none;box-shadow:none;border:0;background:#fff4f8;margin:0 0 8px 0}.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:grid}.nav.open .nav-dropdown-menu a{padding:10px 14px}}
+
+/* Couple game enhancements */
+.couple-game-card{animation:game-enter .55s ease both}
+.game-heart-icon{animation:heart-bob 2.4s ease-in-out infinite}
+.room-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:13px 15px;border-radius:15px;background:#fff0f6;margin:14px 0}
+.room-heading h2{font-size:18px;margin:0}
+.room-heading span{font-size:10px;font-weight:800;color:#a33d72}
+.share-actions,.choice-row{display:flex;gap:9px;flex-wrap:wrap;margin:10px 0 18px}
+.share-actions .btn,.choice-row .btn{font-size:11px;padding:10px 14px}
+.game-progress,.maze-progress{display:flex;justify-content:space-between;padding:12px 14px;background:#f8eaf3;border-radius:12px;color:#9a4775;font-size:11px;font-weight:800;margin:15px 0}
+.game-result{margin-top:20px;padding:22px;text-align:center;border-radius:18px;animation:game-enter .45s ease both}
+.game-result>div{font-size:42px}.game-result h3{font:600 25px 'Playfair Display',serif;margin:7px}.game-result p{font-size:12px;line-height:1.7}
+.sad-result{background:#f1edf8;color:#675078}.happy-result{background:#fce8f1;color:#93416c}
+.truth-spinner{display:flex;align-items:center;gap:17px;padding:18px;border-radius:18px;background:linear-gradient(120deg,#fce8f2,#f3eafa);font-size:35px;margin:16px 0;animation:spin-glow 2.5s ease-in-out infinite}
+.truth-spinner b{font:500 17px 'Playfair Display',serif;color:#7b4567}
+.game-prompt{padding:17px;background:#fff5f8;border:1px solid #f4dce8;border-radius:15px;margin:15px 0}
+.game-prompt p{font-size:14px;line-height:1.7}
+.maze-choice{display:block;width:100%;padding:15px;margin:9px 0;text-align:left;border:1px solid #efd9e6;background:#fff9fc;border-radius:12px;color:#62445b;cursor:pointer;transition:transform .2s,background .2s}
+.maze-choice:hover,.maze-choice.selected{background:#f8dce9;border-color:#d94f8a;transform:translateX(3px)}
+.couple-game-card .btn:disabled{opacity:.5;cursor:not-allowed}
+@keyframes game-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heart-bob{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-5px) scale(1.06)}}
+@keyframes spin-glow{0%,100%{box-shadow:0 0 0 #f4c7dc}50%{box-shadow:0 0 22px #f4c7dc}}
