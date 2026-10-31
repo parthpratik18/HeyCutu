@@ -54,8 +54,8 @@ begin
   elsif v_row.game_type='this-or-that' and v_my_count=8 and v_partner_count=8 then
     v_score:=0; v_total:=8;
     for v_item in select value from jsonb_array_elements(coalesce(v_choices->'creator','[]'::jsonb)) loop
-      if (v_choices->'partner')->(v_item.value->>'step') is not null
-         and (v_choices->'partner')->(v_item.value->>'step')->>'choice'=v_item.value->>'choice' then
+      if (v_choices->'partner')->((v_item.value->>'step')::int) is not null
+         and (v_choices->'partner')->((v_item.value->>'step')::int)->>'choice'=v_item.value->>'choice' then
         v_score:=v_score+1;
       end if;
     end loop;
@@ -77,6 +77,8 @@ begin
       'loyalty_expected',case when v_phase='guess' then v_expected->case when v_role='creator' then 'partner' else 'creator' end else null end,
       'loyalty_round_results',coalesce(v_row.game_state->'loyalty_round_results','[]'::jsonb),
       'maze_choices',v_choices,
+      'creator_submitted',v_row.creator_answers is not null,
+      'partner_submitted',v_row.partner_answers is not null,
       'my_maze_count',v_my_count,
       'partner_maze_count',v_partner_count
     );
