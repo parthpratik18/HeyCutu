@@ -103,7 +103,7 @@ begin
   v_state:=coalesce(v_row.game_state,'{}'::jsonb);
 
   if v_type='loyalty_setup' then
-    if v_role<>v_row.turn_role then raise exception 'It is your partner\'s turn to set the answers'; end if;
+    if v_role<>v_row.turn_role then raise exception 'It is your partner''s turn to set the answers'; end if;
     v_expected:=p_action->'expected';
     if jsonb_typeof(v_expected)<>'object' or (select count(*) from jsonb_object_keys(v_expected))<>5 then
       raise exception 'Choose all five expected answers';
