@@ -29,12 +29,24 @@ returns table(
 language plpgsql security definer set search_path=public,extensions as $$
 declare v_row public.game_sessions%rowtype;
 declare v_hash text := encode(digest(p_participant_token,'sha256'),'hex');
+declare v_result jsonb;
+declare v_score int := 0;
+declare v_total int := 0;
+declare v_item record;
 begin
   select * into v_row from public.game_sessions
   where id=p_session_id and expires_at>now();
   if not found then raise exception 'Game not found or expired'; end if;
   if v_row.creator_token_hash<>v_hash and coalesce(v_row.partner_token_hash,'')<>v_hash then
     raise exception 'Invalid participant token';
+  end if;
+  v_result:=v_row.loyalty_result;
+  if v_row.game_type='love-match' and v_row.creator_answers is not null and v_row.partner_answers is not null then
+    for v_item in select key from jsonb_each(v_row.creator_answers) loop
+      v_total:=v_total+1;
+      if v_row.creator_answers->v_item.key=v_row.partner_answers->v_item.key then v_score:=v_score+1; end if;
+    end loop;
+    v_result:=jsonb_build_object('score',v_score,'total',v_total,'summary',format('You matched on %s of %s answers. Keep learning each other!',v_score,v_total));
   end if;
   return query select
     v_row.partner_token_hash is not null,
@@ -43,7 +55,7 @@ begin
     v_row.last_prompt,
     v_row.creator_expected is not null,
     v_row.partner_answers is not null,
-    v_row.loyalty_result,
+    v_result,
     jsonb_build_object('round',coalesce((v_row.game_state->>'round')::int,1),
       'maze_choices',coalesce(v_row.game_state->'maze_choices','[]'::jsonb));
 end $$;
