@@ -27,12 +27,13 @@ returns table(
   game_state jsonb
 )
 language plpgsql security definer set search_path=public,extensions as $$
-declare v_row public.game_sessions%rowtype;
-declare v_hash text := encode(digest(p_participant_token,'sha256'),'hex');
-declare v_result jsonb;
-declare v_score int := 0;
-declare v_total int := 0;
-declare v_item record;
+declare
+  v_row public.game_sessions%rowtype;
+  v_hash text := encode(digest(p_participant_token,'sha256'),'hex');
+  v_result jsonb;
+  v_score int := 0;
+  v_total int := 0;
+  v_item record;
 begin
   select * into v_row from public.game_sessions
   where id=p_session_id and expires_at>now();
@@ -76,17 +77,18 @@ returns table(
   game_state jsonb
 )
 language plpgsql security definer set search_path=public,extensions as $$
-declare v_row public.game_sessions%rowtype;
-declare v_hash text := encode(digest(p_participant_token,'sha256'),'hex');
-declare v_role text;
-declare v_expected jsonb;
-declare v_answers jsonb;
-declare v_score int := 0;
-declare v_total int := 0;
-declare v_item record;
-declare v_type text := p_action->>'type';
-declare v_state jsonb;
-declare v_result jsonb;
+declare
+  v_row public.game_sessions%rowtype;
+  v_hash text := encode(digest(p_participant_token,'sha256'),'hex');
+  v_role text;
+  v_expected jsonb;
+  v_answers jsonb;
+  v_score int := 0;
+  v_total int := 0;
+  v_item record;
+  v_type text := p_action->>'type';
+  v_state jsonb;
+  v_result jsonb;
 begin
   if jsonb_typeof(p_action)<>'object' or length(p_action::text)>12000 then
     raise exception 'Invalid game action';
