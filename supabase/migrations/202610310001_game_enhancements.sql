@@ -125,7 +125,7 @@ begin
     v_result:=jsonb_build_object('score',v_score,'total',v_total,
       'summary',case when v_score>=4 then 'Your partner knows your heart so well! 💖'
       when v_score>=2 then 'A sweet effort — keep learning each other’s little details.'
-      else 'Looks like there are still a few things to discover together. Make it a cute conversation!'});
+      else 'Looks like there are still a few things to discover together. Make it a cute conversation!' end);
     update public.game_sessions set
       loyalty_result=v_result,
       turn_role=v_role,
