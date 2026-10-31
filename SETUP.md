@@ -8,12 +8,12 @@
 
 ## Supabase configuration
 1. Create a Supabase project at https://supabase.com.
-2. Run supabase/migrations/202610210001_private_game_sessions.sql in SQL Editor.
-3. In project API settings, copy the project URL and publishable/anon key.
-4. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in Vercel project environment variables, then redeploy this branch preview.
+2. Run `supabase/migrations/202610210001_private_game_sessions.sql` in SQL Editor first (only if it has not already been applied).\n3. Then run `supabase/migrations/202610310001_game_enhancements.sql` in SQL Editor. This is additive: it adds room-state columns and two RPC functions; it does not drop existing game data or tables.\n4. In SQL Editor, verify the new functions exist with the verification query in the migration notes below.
+5. In project API settings, copy the project URL and publishable/anon key.
+6. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in Vercel project environment variables, then redeploy the production branch after merging.
 5. Never put the service-role key in a VITE_ variable; those values are exposed to browser code.
 
-## Before production
+## Database verification query\nRun this after both migrations:\n\n```sql\nselect routine_name\nfrom information_schema.routines\nwhere routine_schema = 'public'\n  and routine_name in ('create_game_session','join_game_session','submit_game_answers','get_game_status','get_game_room','submit_game_action')\norder by routine_name;\n```\n\nYou should see six functions. The `game_sessions` table should now have `game_state`, `turn_role`, `last_prompt`, `creator_expected`, and `loyalty_result` columns.\n\n## Before production
 - Test with two separate browsers/devices: first submit must return no result; second submit should reveal the computed result to both.
 - Test invalid tokens, reused invite, duplicate submission and expired sessions.
 - Add rate limits/CAPTCHA and scheduled cleanup before broad public release.
