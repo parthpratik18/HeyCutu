@@ -31,6 +31,26 @@ jobs:
             --project-ref cactocxhfkmvdgurodxa \
             --password "$SUPABASE_DB_PASSWORD"
 
+      - name: Align the three existing manually-applied migrations
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+        shell: bash
+        run: |
+          # These three migrations were previously run in the Supabase SQL Editor.
+          # If SQL Editor did not record them in migration history, mark only those
+          # known-existing changes as applied. Never mark the new migration here.
+          status="$(supabase migration list --linked --password "$SUPABASE_DB_PASSWORD")"
+          for version in 202610210001 202610310001 202610310002; do
+            if printf '%s\\n' "$status" | awk -F '│' -v v="$version" '
+              $1 ~ v && $2 ~ /^[[:space:]]*$/ { missing=1 }
+              END { exit !missing }
+            '; then
+              echo "Recording existing migration $version in history"
+              supabase migration repair "$version" --status applied --linked --password "$SUPABASE_DB_PASSWORD"
+            fi
+          done
+
       - name: Apply pending migrations
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
