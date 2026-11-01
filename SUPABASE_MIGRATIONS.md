@@ -1,27 +1,30 @@
-# Supabase database setup (one time)
+# Supabase database deployment
 
-After this setup, database migrations are applied automatically when a change containing files in `supabase/migrations/` is merged into `main`. You should not need to paste SQL into the Supabase SQL Editor for every feature.
+HeyCutu is connected to the native Supabase GitHub integration.
 
-## One-time GitHub setup
+## Integration settings
 
-In the GitHub repository, open **Settings → Secrets and variables → Actions → New repository secret** and add:
+- Repository: `parthpratik18/HeyCutu`
+- Working directory: `.` (the `supabase/` folder is at repository root)
+- Production branch: `main`
+- Automatic preview branches: Off (Free plan; no extra Supabase branches)
+- Deploy to production: Keep OFF until migration history has been checked and baselined.
 
-- `SUPABASE_ACCESS_TOKEN`: a Supabase personal access token.
-- `SUPABASE_DB_PASSWORD`: the database password for project `cactocxhfkmvdgurodxa`.
+## Important: reconcile existing migration history first
 
-Do not put either value in source code or commit them.
+The repository contains four migrations:
 
-## Existing database baseline
+- `202610210001_private_game_sessions.sql`
+- `202610310001_game_enhancements.sql`
+- `202610310002_gameplay_logic_fixes.sql`
+- `202611010001_game_room_lock_and_wheel_turn.sql`
 
-The first workflow run checks migration history. The first three migrations were previously applied manually in the Supabase SQL Editor, so if they are missing from Supabase's migration-history table, the workflow records those three as already applied. It does not rerun their SQL. It then runs `supabase db push`, which applies only genuinely pending newer migrations.
+The first three were previously applied manually through the Supabase SQL Editor. Supabase's GitHub deployment applies migration files that do not already have matching entries in `supabase_migrations.schema_migrations`. If those older versions are missing from migration history, enabling production deployment could try to run old SQL again.
 
-This baseline step is safe only because those three earlier migrations have already been applied to this project. If the database was reset or any of those SQL scripts were not actually run, stop and reconcile the schema before enabling the workflow.
+Before enabling production deployment, inspect the migration history in the live project. If the table exists, check which of the first three versions are recorded. If it does not exist, do not enable deployment yet. The old versions must be marked as applied only after verifying that their SQL changes are present in production. `supabase migration repair --status applied <version>` updates migration history only; it does not run SQL.
+
+Do not use the password-dependent GitHub Actions workflow in this repository. It is intentionally disabled. The Supabase native GitHub integration is the deployment mechanism.
 
 ## Going forward
 
-1. Add each database change as a new timestamped SQL file under `supabase/migrations/`.
-2. Commit it with the app changes.
-3. Merge the PR into `main`.
-4. GitHub Actions applies pending migrations automatically and records them in Supabase history.
-
-Never edit an old migration after it has been applied. Create a new migration file for every later change.
+Once history is reconciled, enable **Deploy to production** in Supabase. New timestamped files under `supabase/migrations/` merged into `main` will then be applied by Supabase. Never edit a migration after it has been applied; add a new migration for each later change.
