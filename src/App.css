@@ -38,3 +38,35 @@
 .game-toast{padding:10px 13px;border-radius:10px;background:#fce8f1;color:#88466d;font-size:12px}
 @keyframes truth-wheel-spin{0%{transform:rotate(0) scale(.85)}70%{transform:rotate(650deg) scale(1.12)}100%{transform:rotate(720deg) scale(1)}}
 @media(prefers-reduced-motion:reduce){.truth-wheel.is-spinning .wheel-face{animation:none}}
+
+/* Small 2D love birds shared by every page */
+.love-birds{position:fixed;right:18px;bottom:16px;width:118px;z-index:20;pointer-events:none;opacity:.9;filter:drop-shadow(0 4px 7px #7d456322)}
+.love-birds svg{width:100%;overflow:visible}
+.love-birds .bird{fill:#d96b9a;animation:bird-float 2.8s ease-in-out infinite}
+.love-birds .bird-two{fill:#a98acb;animation-delay:-1.4s}
+.love-birds .wing{fill:#f7c3d9}
+.love-birds .eye{fill:#57364f}
+.love-birds .bird-heart{fill:#e85b91;animation:heart-bob 1.8s ease-in-out infinite;transform-origin:center}
+@keyframes bird-float{0%,100%{transform:translateY(1px) rotate(-3deg)}50%{transform:translateY(-6px) rotate(3deg)}}
+@media(max-width:680px){.love-birds{width:84px;right:8px;bottom:8px;opacity:.72}}
+@media(prefers-reduced-motion:reduce){.love-birds .bird,.love-birds .bird-heart{animation:none}}
+/* Real two-name wheel */
+.wheel-pointer{position:relative;z-index:2;color:#d84e89;font-size:20px;line-height:1;margin-bottom:-8px}
+.wheel-disc{width:220px;height:220px;border-radius:50%;border:8px solid #fff;box-shadow:0 8px 22px #9b477533;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:conic-gradient(from -90deg,#f6c7dc 0 50%,#dcd0f4 50% 100%);transition:transform 1.5s cubic-bezier(.12,.75,.16,1)}
+.wheel-disc:after{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:#fff9}
+.wheel-name{position:absolute;max-width:88px;text-align:center;font-size:13px;font-weight:800;color:#70425f;overflow-wrap:anywhere}
+.creator-name{left:15px;top:50%;transform:translateY(-50%) rotate(-90deg)}
+.partner-name{right:15px;top:50%;transform:translateY(-50%) rotate(90deg)}
+.wheel-heart{position:relative;z-index:1;background:#fff;border-radius:50%;width:42px;height:42px;display:grid;place-items:center;color:#d94f8a;font-size:24px;box-shadow:0 2px 8px #74425a22}
+.truth-wheel.is-spinning .wheel-disc{transform:rotate(1080deg)}
+.heart-maze{display:grid;gap:4px;justify-content:center;padding:16px;background:#fff4f8;border-radius:16px;margin:14px 0}
+.maze-row{display:grid;grid-template-columns:repeat(9,27px);gap:4px}
+.maze-cell{width:27px;height:27px;border-radius:6px;display:grid;place-items:center;font-size:12px;font-weight:800}
+.maze-cell.wall{background:#825d83}
+.maze-cell.path{background:#fff;border:1px solid #f0d9e6}
+.maze-cell.player{background:#f6b9d3;box-shadow:0 0 0 2px #d94f8a}
+.maze-controls{display:grid;justify-items:center;gap:5px;margin:10px auto}
+.maze-controls>div{display:flex;gap:5px}
+.maze-controls button{width:42px;height:38px;border:0;border-radius:10px;background:#f7dce9;color:#85456b;font-size:20px;font-weight:800}
+.maze-hint{font-size:11px;text-align:center;color:#86677c}
+@media(max-width:390px){.maze-row{grid-template-columns:repeat(9,23px);gap:3px}.maze-cell{width:23px;height:23px;font-size:10px}}
