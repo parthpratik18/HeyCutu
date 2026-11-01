@@ -1,0 +1,14 @@
+name: Supabase migrations (disabled)
+
+# Supabase's native GitHub integration is the intended deployment path.
+# This legacy workflow is deliberately disabled because it requires the
+# production database password, which the project owner does not have.
+on:
+  workflow_dispatch:
+
+jobs:
+  disabled:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Disabled. Use the Supabase GitHub integration after migration history is reconciled."
