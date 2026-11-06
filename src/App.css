@@ -38,3 +38,33 @@
 .game-toast{padding:10px 13px;border-radius:10px;background:#fce8f1;color:#88466d;font-size:12px}
 @keyframes truth-wheel-spin{0%{transform:rotate(0) scale(.85)}70%{transform:rotate(650deg) scale(1.12)}100%{transform:rotate(720deg) scale(1)}}
 @media(prefers-reduced-motion:reduce){.truth-wheel.is-spinning .wheel-face{animation:none}}
+
+/* HeyCutu Gift Store */
+.gift-store-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.store-product{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.store-product-image{height:210px;display:grid;place-items:center;background:linear-gradient(145deg,#f9eaf2,#f5eafa);overflow:hidden}
+.store-product-image img{width:100%;height:100%;object-fit:cover}
+.store-product-image>span{font-size:66px}
+.store-product-body{padding:18px}
+.store-product-body>small{font-size:9px;color:#a04a76;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.store-product-body h3{font:500 22px 'Playfair Display',serif;margin:10px 0}
+.store-product-body p{min-height:42px;color:var(--muted);font-size:12px;line-height:1.7}
+.store-price{display:block;color:#a83c70;font-size:14px;margin:7px 0}
+.store-product-body .btn{width:100%;margin-top:10px}
+.store-featured{position:absolute;top:12px;left:12px;z-index:1;padding:7px 10px;border-radius:30px;background:#402640;color:white;font-size:9px;font-weight:800;letter-spacing:1px}
+.store-share{border:0;background:none;color:#a83c70;font-size:11px;font-weight:800;padding:12px;cursor:pointer}
+.gift-empty{text-align:center;grid-column:1/-1;padding:60px 20px;background:#fff;border:1px solid var(--line);border-radius:20px}
+.gift-empty>span{font-size:55px}.gift-empty h2{font:500 27px 'Playfair Display',serif}.gift-empty p{color:var(--muted);font-size:13px}
+.gift-admin-login{max-width:470px;margin:auto}
+.gift-admin-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+.gift-admin-check{display:flex!important;flex-direction:row!important;align-items:center;gap:10px!important}
+.gift-admin-check input{width:auto!important}
+.gift-admin-list{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}
+.gift-admin-list h2{font:500 25px 'Playfair Display',serif}
+.gift-admin-list article{display:flex;align-items:center;gap:9px;padding:13px 0;border-top:1px solid var(--line)}
+.gift-admin-list article>div{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+.gift-admin-list article small{font-size:10px;color:var(--muted)}
+.gift-admin-list article .btn{padding:9px 12px;font-size:10px}
+.store-delete{border:0;background:none;color:#b42355;font-size:11px;font-weight:800;cursor:pointer}
+@media(max-width:760px){.gift-store-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gift-admin-layout{grid-template-columns:1fr}}
+@media(max-width:520px){.gift-store-grid{grid-template-columns:1fr}.store-product-image{height:230px}}
