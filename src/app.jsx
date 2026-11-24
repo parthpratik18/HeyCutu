@@ -103,7 +103,7 @@ function Wish({type}){
  return <main className={'wish-page '+(birthday?'birthday-page':'anniversary-page')+(made?' is-celebrating':'')}>
   <div className="wish-glow wish-glow-one"/><div className="wish-glow wish-glow-two"/>
   {made?<>
-   <div className="wish-particles" aria-hidden="true">{particles.map(i=><span key={i} style={{'--i':i}}>{birthday?['✦','✧','•','♡'][i%4]:['♡','✿','✧','♥'][i%4]}</span>)}</div>
+   <div className="wish-particles" aria-hidden="true">{particles.map(i=><span key={i} style={{left:(i*37)%100+'%',top:(i*61)%90+'%',animationDelay:(i*-.47)+'s',fontSize:(9+(i%4)*5)+'px'}}>{birthday?['✦','✧','•','♡'][i%4]:['♡','✿','✧','♥'][i%4]}</span>)}</div>
    {birthday?<div className="wish-balloon balloon-one" aria-hidden="true">🎈</div>:<div className="wish-orbit" aria-hidden="true"><span>♥</span><i/><b>✧</b></div>}
    <section className="wish-celebration">
     <div className="wish-topline">{birthday?'A DAY THAT IS ALL ABOUT YOU':'ANOTHER CHAPTER, STILL MY FAVOURITE'}</div>
