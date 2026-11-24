@@ -68,3 +68,128 @@
 .store-delete{border:0;background:none;color:#b42355;font-size:11px;font-weight:800;cursor:pointer}
 @media(max-width:760px){.gift-store-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gift-admin-layout{grid-template-columns:1fr}}
 @media(max-width:520px){.gift-store-grid{grid-template-columns:1fr}.store-product-image{height:230px}}
+
+
+/* Animated birthday and anniversary wish experiences */
+.wish-page{position:relative;isolation:isolate;overflow:hidden;min-height:calc(100vh - 82px);padding:0 0 88px;background:#fff8f5;color:#41253e}
+.wish-page .wish-glow{position:absolute;z-index:-1;width:460px;height:460px;border-radius:50%;filter:blur(2px);pointer-events:none}
+.wish-glow-one{top:-210px;left:-130px;background:radial-gradient(circle,#ffe0eb 0,transparent 70%)}
+.wish-glow-two{right:-190px;bottom:-180px;background:radial-gradient(circle,#f5e0ff 0,transparent 70%)}
+.birthday-page{background:linear-gradient(145deg,#fff8f2 0%,#fff1f4 48%,#fff9e9 100%)}
+.anniversary-page{background:linear-gradient(145deg,#fff7f7 0%,#f8eff8 52%,#fff7ed 100%)}
+.wish-builder-hero{width:min(1100px,calc(100% - 48px));margin:auto;min-height:405px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:50px 0 22px}
+.wish-topline{font-size:9px;letter-spacing:2.7px;font-weight:900;color:#b85d82}
+.wish-builder-copy h1{font:500 clamp(48px,6vw,76px)/1.03 'Playfair Display',serif;letter-spacing:-2.5px;margin:20px 0;color:#452942}
+.wish-builder-copy h1 em{font-weight:500;font-style:italic;color:#dc648c}
+.anniversary-page .wish-builder-copy h1 em{color:#9e6a9f}
+.wish-builder-copy>p{max-width:460px;color:#8a7183;font-size:13px;line-height:1.9}
+.wish-feature-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.wish-feature-pills span{padding:9px 12px;border:1px solid #f0dce5;background:#fff9f8;border-radius:30px;color:#8a6079;font-size:10px;font-weight:700}
+.wish-art-preview{height:330px;max-width:430px;width:100%;justify-self:center;position:relative;display:grid;place-items:center;border-radius:48% 52% 44% 56%;background:radial-gradient(circle at 50% 48%,#fff 0,#ffe9ed 48%,#fbe6ef 70%,#f6e8f6 100%);box-shadow:inset 0 0 0 1px #fff,0 24px 65px #a45b7c15;overflow:hidden}
+.birthday-page .wish-art-preview{background:radial-gradient(circle at 50% 48%,#fff 0,#fff0d6 47%,#ffe6e9 75%,#fbe8ef 100%)}
+.preview-cake{position:relative;width:145px;height:120px;margin-top:25px;filter:drop-shadow(0 14px 12px #9d60722b);animation:preview-cake-float 3.8s ease-in-out infinite}
+.preview-cake-base{position:absolute;bottom:0;width:145px;height:70px;border-radius:15px 15px 22px 22px;background:linear-gradient(90deg,#e88fa7,#f5b6bd 48%,#e78da4);box-shadow:inset 0 -10px #d77a98}
+.preview-icing{position:absolute;z-index:2;top:42px;left:0;width:145px;height:28px;border-radius:12px 12px 18px 18px;background:#fff5e9;color:#dc6f8d;text-align:center;letter-spacing:9px;padding:6px 0;font-size:12px}
+.preview-candle{position:absolute;z-index:3;top:-23px;left:63px;font-size:33px}
+.preview-balloon{position:absolute;font-size:61px;filter:drop-shadow(0 9px 9px #9b607322);animation:preview-balloon 4s ease-in-out infinite}
+.pb-one{left:35px;top:60px}.pb-two{right:28px;top:100px;animation-delay:-2s}
+.preview-star{position:absolute;color:#d69a55;font-size:28px;animation:preview-twinkle 2.2s ease-in-out infinite}
+.ps-one{top:55px;right:88px}.ps-two{bottom:82px;left:75px;animation-delay:-1s}
+.preview-caption{position:absolute;bottom:37px;padding:9px 17px;border-radius:30px;background:#fffaf3;color:#a35a77;font:italic 14px 'Playfair Display',serif;box-shadow:0 8px 20px #8b51621a}
+.preview-heart{font-size:105px;color:#d77c9e;text-shadow:0 12px 28px #c477982f;animation:heart-throb 2s ease-in-out infinite}
+.preview-petal{position:absolute;font-size:38px;animation:preview-petal 5s ease-in-out infinite}
+.pp-one{left:42px;top:54px}.pp-two{right:40px;top:65px;animation-delay:-1.7s}.pp-three{right:72px;bottom:70px;animation-delay:-3s}
+.wish-creator{display:grid;grid-template-columns:1fr .88fr;gap:28px;align-items:stretch;padding-top:22px}
+.wish-form-card,.wish-live-card{border:1px solid #f0dfe7;border-radius:26px;background:#fffdfb;box-shadow:0 24px 65px #81536a12;padding:30px}
+.wish-form-heading{display:flex;justify-content:space-between;align-items:center}
+.wish-form-heading>span{font-size:9px;letter-spacing:2px;font-weight:900;color:#bd6c8c}
+.wish-form-heading>b{width:43px;height:43px;display:grid;place-items:center;border-radius:14px;background:#fff0e8;font-size:21px}
+.wish-form-card h2{font:500 32px 'Playfair Display',serif;margin:18px 0 7px;color:#462c43}
+.wish-form-intro{font-size:12px;color:#927c8e;line-height:1.8;margin:0 0 22px}
+.wish-form-card label{display:flex;flex-direction:column;gap:8px;margin:16px 0;color:#60475c;font-size:11px;font-weight:800}
+.wish-form-card label small{display:inline;color:#a38d9d;font-weight:500}
+.wish-form-card input,.wish-form-card select{width:100%;min-height:47px;padding:12px 14px;border:1px solid #ecdde5;border-radius:12px;background:#fffafa;color:#452942;outline:none;font:500 12px 'DM Sans',sans-serif;transition:border-color .2s,box-shadow .2s}
+.wish-form-card input:focus,.wish-form-card select:focus{border-color:#df8ca9;box-shadow:0 0 0 4px #fce9ef}
+.wish-number-wrap{position:relative}
+.wish-number-wrap input{padding-right:125px}
+.wish-number-wrap>span{position:absolute;right:13px;top:50%;transform:translateY(-50%);font-size:8px;letter-spacing:1px;color:#b48a9f;font-weight:900;pointer-events:none}
+.wish-create-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:14px;border:0;border-radius:14px;padding:16px 20px;margin-top:18px;background:linear-gradient(110deg,#d95886,#e98b9e);color:#fff;font-size:12px;font-weight:900;box-shadow:0 12px 25px #d86b8b30;transition:transform .2s,box-shadow .2s}
+.wish-create-btn:hover{transform:translateY(-3px);box-shadow:0 17px 30px #d86b8b42}
+.anniversary-page .wish-create-btn{background:linear-gradient(110deg,#98699f,#c17eaa);box-shadow:0 12px 25px #98699f30}
+.wish-create-btn span{font-size:18px}
+.wish-privacy-note{display:block;text-align:center;color:#a28e9e;font-size:9px;margin-top:14px}
+.wish-error{color:#b42355;background:#fff0f2;border-radius:10px;padding:10px;font-size:11px}
+.wish-live-card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:510px;overflow:hidden;background:radial-gradient(circle at 50% 25%,#fff 0,#fff8f6 44%,#fdf0f5 100%);padding:36px}
+.anniversary-page .wish-live-card{background:radial-gradient(circle at 50% 25%,#fff 0,#fff8fb 44%,#f4eaf6 100%)}
+.wish-live-card:before,.wish-live-card:after{content:"";position:absolute;width:210px;height:210px;border:1px solid #f3dce5;border-radius:50%;pointer-events:none}
+.wish-live-card:before{top:-125px;right:-100px}.wish-live-card:after{bottom:-145px;left:-100px}
+.wish-live-label{position:absolute;top:23px;left:22px;right:22px;display:flex;justify-content:space-between;gap:10px;font-size:8px;letter-spacing:1.5px;font-weight:900;color:#b26d8b}
+.wish-live-label span{color:#c49aab}
+.wish-live-art{font-size:74px;margin:20px 0 15px;animation:preview-cake-float 3.8s ease-in-out infinite}
+.anniversary-page .wish-live-art{animation:heart-throb 2.4s ease-in-out infinite}
+.wish-live-overline{font-size:8px;letter-spacing:2px;color:#bb7b92;font-weight:900}
+.wish-live-card h3{font:500 29px/1.28 'Playfair Display',serif;color:#4a2e46;margin:15px 0}
+.wish-live-card h3 em{display:block;color:#d5688d;font-weight:500}
+.anniversary-page .wish-live-card h3 em{color:#9f6b9e}
+.wish-live-card>p{font:italic 14px/1.8 'Playfair Display',serif;color:#8e788a;max-width:280px}
+.wish-live-hearts{color:#d8789a;letter-spacing:6px;margin:15px 0}
+.wish-live-sign{font:italic 13px 'Playfair Display',serif;color:#9c718b}
+.is-celebrating{min-height:calc(100vh - 82px);padding:48px 18px 55px;display:flex;align-items:center;justify-content:center}
+.wish-celebration{position:relative;z-index:2;width:min(680px,100%);padding:44px 48px 30px;border:1px solid #fff;border-radius:34px;text-align:center;background:#fffdfbf0;box-shadow:0 30px 100px #80506a1c;backdrop-filter:blur(12px);animation:wish-card-enter .85s cubic-bezier(.2,.8,.2,1) both}
+.birthday-page .wish-celebration{background:linear-gradient(160deg,#fffefa,#fff7f4 55%,#fff1f3)}
+.anniversary-page .wish-celebration{background:linear-gradient(160deg,#fffefa,#fff8fb 55%,#f8f0fa)}
+.wish-celebration:before{content:"";position:absolute;inset:10px;border:1px solid #f5e2e8;border-radius:26px;pointer-events:none}
+.wish-celebration>*{position:relative;z-index:1}
+.wish-celebration .wish-topline{font-size:8px;letter-spacing:3px}
+.wish-illustration{position:relative;width:170px;height:135px;margin:20px auto 12px;display:flex;align-items:center;justify-content:center}
+.cake-layer{position:absolute;left:50%;transform:translateX(-50%);border-radius:13px 13px 19px 19px;box-shadow:inset 0 -8px #d77d91}
+.cake-layer-bottom{bottom:15px;width:140px;height:52px;background:linear-gradient(90deg,#e98ea4,#f8c2bd 50%,#e990a5)}
+.cake-layer-top{bottom:60px;width:112px;height:40px;background:linear-gradient(90deg,#f5b5b5,#ffe1c9 50%,#f4b1b3);border-radius:12px 12px 14px 14px;box-shadow:inset 0 -6px #e99da5}
+.cake-plate{position:absolute;bottom:7px;width:165px;height:12px;border-radius:50%;background:linear-gradient(#fff,#e9cbd0);box-shadow:0 6px 12px #b67b8226}
+.cake-flames{position:absolute;top:1px;display:flex;gap:27px;z-index:3}
+.cake-flames i{width:9px;height:15px;border-radius:80% 20% 70% 30%;background:linear-gradient(#fff4a9,#f39a42);transform:rotate(8deg);animation:candle-flame .65s ease-in-out infinite alternate;box-shadow:0 0 14px #ffb64d}
+.cake-flames i:nth-child(2){animation-delay:-.3s}.cake-flames i:nth-child(3){animation-delay:-.5s}
+.cake-topper{position:absolute;z-index:4;top:22px;color:#d65e88;font-size:17px}
+.cake-spark{position:absolute;color:#d59b55;font-size:24px;animation:preview-twinkle 1.8s ease-in-out infinite}
+.spark-a{left:0;top:30px}.spark-b{right:0;top:50px;animation-delay:-.8s}
+.anniversary-illustration{border-radius:50%;background:radial-gradient(circle,#fff 0,#fce7f0 68%,transparent 70%)}
+.anniv-heart{font-size:64px;color:#d7789e;text-shadow:0 9px 22px #ce789b3d;animation:heart-throb 2s ease-in-out infinite}
+.ring{position:absolute;width:128px;height:128px;border:1px solid #e9b5ca;border-radius:50%;animation:ring-turn 14s linear infinite}
+.ring-two{width:158px;height:158px;border-color:#e8d1e8;animation-direction:reverse;animation-duration:19s}
+.anniv-spark{position:absolute;color:#bd8ba9;font-size:20px}.anniv-spark-a{top:7px;right:13px}.anniv-spark-b{bottom:10px;left:10px}
+.wish-kicker{font-size:8px;letter-spacing:2px;font-weight:900;color:#b67b91;margin:8px 0 12px}
+.wish-celebration h1{font:500 clamp(34px,5vw,51px)/1.13 'Playfair Display',serif;letter-spacing:-1.5px;color:#482b43;margin:0 0 18px}
+.wish-celebration h1 em{font-weight:500;color:#d65f89}
+.anniversary-page .wish-celebration h1 em{color:#9d6d9d}
+.wish-milestone{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:30px;background:#ffedf1;color:#bc5c7f;margin:0 auto 13px}
+.wish-milestone span{font:500 19px 'Playfair Display',serif}.wish-milestone small{font-size:8px;letter-spacing:1.4px;font-weight:900}
+.anniversary-page .wish-milestone{background:#f2e9f5;color:#916493}
+.wish-message{max-width:470px;margin:9px auto 17px;color:#846e80;font:italic 15px/1.9 'Playfair Display',serif}
+.wish-signoff{font:italic 14px 'Playfair Display',serif;color:#a77b92}.wish-signoff span{color:#d46a91;font-size:18px}
+.wish-card-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:24px 0 18px}
+.wish-share-btn,.wish-edit-btn{border:0;border-radius:30px;padding:13px 20px;font-size:10px;font-weight:900;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.wish-share-btn{background:linear-gradient(110deg,#d95886,#e98b9e);color:white;box-shadow:0 9px 20px #d86b8b2e}
+.anniversary-page .wish-share-btn{background:linear-gradient(110deg,#98699f,#c17eaa)}
+.wish-edit-btn{background:#f8edf1;color:#96647d}
+.wish-share-btn:hover,.wish-edit-btn:hover{transform:translateY(-2px)}
+.wish-footer-note{font-size:7px;letter-spacing:2px;color:#b99aaa}
+.wish-particles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.wish-particles span{position:absolute;left:calc((var(--i)*41 + 3)%97*1%);top:calc((var(--i)*67 + 8)%88*1%);font-size:calc(9px + (var(--i)%4)*5px);color:#e9a3b7;opacity:0;animation:wish-particle-rise calc(5s + (var(--i)%5)*1s) ease-in-out infinite;animation-delay:calc(var(--i)*-.47s)}
+.anniversary-page .wish-particles span{color:#bd91b2}
+.wish-balloon{position:absolute;z-index:1;left:calc(50% - 440px);top:16%;font-size:70px;animation:preview-balloon 5s ease-in-out infinite}
+.wish-orbit{position:absolute;z-index:1;right:calc(50% - 475px);top:16%;width:140px;height:140px;border:1px solid #e9c8dc;border-radius:50%;animation:ring-turn 25s linear infinite}
+.wish-orbit span{position:absolute;top:-13px;left:55px;color:#d77c9e;font-size:29px}
+.wish-orbit i{position:absolute;bottom:4px;right:12px;width:9px;height:9px;background:#e8a9c3;border-radius:50%}
+.wish-orbit b{position:absolute;top:50px;left:-10px;color:#b98db4;font-size:20px}
+@keyframes wish-card-enter{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes wish-particle-rise{0%{transform:translateY(50px) rotate(0) scale(.5);opacity:0}18%{opacity:.8}80%{opacity:.65}100%{transform:translateY(-110px) rotate(190deg) scale(1.2);opacity:0}}
+@keyframes preview-cake-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-11px) rotate(1deg)}}
+@keyframes preview-balloon{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-17px) rotate(7deg)}}
+@keyframes preview-twinkle{0%,100%{opacity:.55;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(18deg)}}
+@keyframes preview-petal{0%,100%{transform:translateY(0) rotate(-10deg)}50%{transform:translateY(-16px) rotate(14deg)}}
+@keyframes heart-throb{0%,100%{transform:scale(1)}12%{transform:scale(1.12)}24%{transform:scale(1)}36%{transform:scale(1.08)}52%{transform:scale(1)}}
+@keyframes candle-flame{from{transform:rotate(-8deg) scale(.9);opacity:.8}to{transform:rotate(9deg) scale(1.1);opacity:1}}
+@keyframes ring-turn{to{transform:rotate(360deg)}}
+@media(max-width:850px){.wish-builder-hero{gap:20px;min-height:360px}.wish-art-preview{height:290px}.wish-creator{grid-template-columns:1fr .9fr;gap:16px}.wish-form-card,.wish-live-card{padding:23px}.wish-balloon{left:12px;font-size:50px}.wish-orbit{right:10px;transform:scale(.75)}}
+@media(max-width:680px){.wish-page{min-height:calc(100vh - 70px);padding-bottom:50px}.wish-builder-hero{width:calc(100% - 36px);grid-template-columns:1fr;gap:8px;padding:43px 0 14px}.wish-builder-copy h1{font-size:53px;margin:15px 0}.wish-builder-copy>p{font-size:12px}.wish-feature-pills{gap:6px}.wish-feature-pills span{font-size:9px;padding:8px 10px}.wish-art-preview{height:250px;max-width:340px;width:92%;margin:10px auto 0}.preview-cake{transform:scale(.82);margin-top:15px}.wish-creator{grid-template-columns:1fr;width:calc(100% - 32px);padding-top:14px;gap:16px}.wish-form-card{padding:22px 19px}.wish-form-card h2{font-size:28px}.wish-live-card{min-height:390px;padding:28px 20px}.wish-live-art{font-size:60px}.wish-live-card h3{font-size:26px}.is-celebrating{padding:26px 13px 35px;min-height:calc(100vh - 70px)}.wish-celebration{padding:34px 19px 24px;border-radius:25px}.wish-celebration:before{inset:7px;border-radius:19px}.wish-illustration{transform:scale(.88);margin:12px auto 4px;height:125px}.wish-celebration h1{font-size:37px}.wish-message{font-size:14px}.wish-balloon{left:5px;top:5%;font-size:39px}.wish-orbit{right:-28px;top:3%;transform:scale(.55)}.wish-footer-note{font-size:6px;letter-spacing:1.3px}}
+@media(prefers-reduced-motion:reduce){.wish-page *, .wish-page *:before,.wish-page *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
