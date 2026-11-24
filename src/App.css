@@ -174,7 +174,7 @@
 .wish-share-btn:hover,.wish-edit-btn:hover{transform:translateY(-2px)}
 .wish-footer-note{font-size:7px;letter-spacing:2px;color:#b99aaa}
 .wish-particles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.wish-particles span{position:absolute;left:calc((var(--i)*41 + 3)%97*1%);top:calc((var(--i)*67 + 8)%88*1%);font-size:calc(9px + (var(--i)%4)*5px);color:#e9a3b7;opacity:0;animation:wish-particle-rise calc(5s + (var(--i)%5)*1s) ease-in-out infinite;animation-delay:calc(var(--i)*-.47s)}
+.wish-particles span{position:absolute;color:#e9a3b7;opacity:0;animation:wish-particle-rise 6s ease-in-out infinite}
 .anniversary-page .wish-particles span{color:#bd91b2}
 .wish-balloon{position:absolute;z-index:1;left:calc(50% - 440px);top:16%;font-size:70px;animation:preview-balloon 5s ease-in-out infinite}
 .wish-orbit{position:absolute;z-index:1;right:calc(50% - 475px);top:16%;width:140px;height:140px;border:1px solid #e9c8dc;border-radius:50%;animation:ring-turn 25s linear infinite}
