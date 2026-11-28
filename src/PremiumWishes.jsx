@@ -2,9 +2,9 @@ import { useMemo, useState } from 'react'
 const themes={birthday:{emoji:'🎂'},anniversary:{emoji:'💞'}}
 function draft(d){
  const n=d.name||'my favourite person',f=d.from||'Someone who loves you';
- const traits=d.description.split(/[,.\\n]+/).map(x=>x.trim()).filter(Boolean).slice(0,4);
- if(d.occasion==='birthday')return 'To '+n+',\\n\\nToday deserves extra sparkle because the world got you. I love '+(traits.length?traits.join(', ').toLowerCase():'your little ways of making ordinary moments special')+'. I hope this next chapter brings you big smiles, beautiful surprises and every little thing your heart has been wishing for.\\n\\nHappy Birthday. Keep being wonderfully you.\\n\\nWith all my love, '+f+' 💗';
- return 'To '+n+',\\n\\nAnother chapter, another collection of little moments I would not trade. I love '+(traits.length?traits.join(', ').toLowerCase():'the little things that make you, you')+'. Thank you for making the ordinary feel special and for being my favourite person to do life with.\\n\\nHere is to the memories we have made and all the ones still waiting for us. Happy Anniversary.\\n\\nAlways yours, '+f+' 💞'
+ const traits=d.description.split(/[,.\n]+/).map(x=>x.trim()).filter(Boolean).slice(0,4);
+ if(d.occasion==='birthday')return 'To '+n+',\n\nToday deserves extra sparkle because the world got you. I love '+(traits.length?traits.join(', ').toLowerCase():'your little ways of making ordinary moments special')+'. I hope this next chapter brings you big smiles, beautiful surprises and every little thing your heart has been wishing for.\n\nHappy Birthday. Keep being wonderfully you.\n\nWith all my love, '+f+' 💗';
+ return 'To '+n+',\n\nAnother chapter, another collection of little moments I would not trade. I love '+(traits.length?traits.join(', ').toLowerCase():'the little things that make you, you')+'. Thank you for making the ordinary feel special and for being my favourite person to do life with.\n\nHere is to the memories we have made and all the ones still waiting for us. Happy Anniversary.\n\nAlways yours, '+f+' 💞'
 }
 export default function PremiumWishes(){
  const params=useMemo(()=>new URLSearchParams(location.search),[]);
@@ -52,7 +52,7 @@ export default function PremiumWishes(){
     <div className="premium-polaroid"><div className="premium-photo">{photo?<img src={photo} alt={'Photo of '+name}/>:<div className="premium-photo-placeholder"><span>{occasion==='birthday'?'📸':'💗'}</span><small>YOUR FAVOURITE MEMORY</small></div>}</div><p>{name} <span>♡</span></p><small>{date?new Date(date+'T12:00:00').toLocaleDateString(undefined,{day:'numeric',month:'long',year:'numeric'}):'A moment worth keeping'}</small></div>
     <article className="premium-letter"><span className="premium-tape">A NOTE FROM THE HEART</span><h2>{occasion==='birthday'?'A little letter for you':'A page from our story'}</h2><p>{finalMessage}</p><b>— {from||'Someone who adores you'} ✍️</b></article>
    </section>
-   <section className="premium-traits"><p className="premium-script">The little things I adore</p><h2>You’re special in a million ways.</h2><div>{description.split(/[,.\\n]+/).map(x=>x.trim()).filter(Boolean).slice(0,8).map((x,i)=><span key={i}>{['✦','♡','✿','☀'][i%4]} {x}</span>)}</div></section>
+   <section className="premium-traits"><p className="premium-script">The little things I adore</p><h2>You’re special in a million ways.</h2><div>{description.split(/[,.\n]+/).map(x=>x.trim()).filter(Boolean).slice(0,8).map((x,i)=><span key={i}>{['✦','♡','✿','☀'][i%4]} {x}</span>)}</div></section>
    <section className="premium-ending"><div>{themes[occasion].emoji}</div><h2>{occasion==='birthday'?'Make a wish.':'Here’s to us.'}</h2><p>{occasion==='birthday'?'May this year be as lovely as the person you are.':'More laughs, more little adventures, more choosing each other.'}</p><strong>Forever cheering for you, {name} ♡</strong></section>
    <div className="premium-actions"><button className="btn" onClick={share}>{copied?'Link copied ✓':'Copy share link ↗'}</button><button className="btn soft" onClick={edit}>Edit my wish</button></div>
    <p className="premium-footnote">Made with a little extra love on HeyCutu · Photo stays in this preview on this device.</p>
