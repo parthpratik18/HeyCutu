@@ -41,7 +41,7 @@ export default function CoupleGame({slug}){
  function spin(){if(spinning||!turn)return;setSpinning(true);const pool=kind==='Truth'?truths:dares;const selected=pool[Math.floor(Math.random()*pool.length)];const target=Math.random()<0.5?'creator':'partner';setSelectedRole(target);setTimeout(()=>{setPrompt(selected);setSpinning(false)},1500)}
  const result=status?.result
  const creatorName=status?.game_state?.creator_name||(room?.role==='creator'?room?.name:'Your person')
- const partnerName=status?.partner_name||(room?.role==='partner'?room?.name:'Your person')
+ const partnerName=room?.role==='partner'?room?.name:(status?.partner_name||'Your person')
  const pickedRole=prompt?selectedRole:(status?.last_prompt?status?.turn_role:null)
  const pickedName=pickedRole==='creator'?creatorName:pickedRole==='partner'?partnerName:''
  const activeGamePath=activeRoom?.gameSlug==='truth-or-dare'?'truth-or-dare':activeRoom?.gameSlug
