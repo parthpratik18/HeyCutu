@@ -79,3 +79,35 @@
 .wheel-pointer.picked-partner{top:50%;right:calc(50% - 113px);left:auto;transform:translateY(-50%);font-size:25px}
 .wheel-name.picked{color:#8d174f;text-shadow:0 0 9px #fff,0 0 13px #fff;font-size:15px;z-index:2}
 .truth-wheel>small{max-width:100%;padding:0 28px}
+
+/* HeyCutu couple-meme makeover: bold, playful, mobile-first */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap');
+:root{font-family:'Outfit',sans-serif;color:#29172f;background:#fff8fb;--ink:#29172f;--muted:#78677d;--pink:#ff4f91;--line:#f5dce8;--shadow:0 18px 50px #8c2f651c;--hot:#ff4f91;--purple:#8d63e8}
+body{background:radial-gradient(ellipse at 85% 4%,#ffd9e9 0,transparent 30%),radial-gradient(ellipse at 0 40%,#e9ddff 0,transparent 28%),#fff8fb;background-attachment:fixed;color:var(--ink)}
+.header{height:76px;background:#fff8fbdb;border-bottom:1px solid #f3d9e6;box-shadow:0 8px 28px #6b23510a}
+.brand{font-family:'Bricolage Grotesque',sans-serif;font-size:27px;letter-spacing:-1.5px}.brand span{border-radius:13px;background:#ffdfeb;color:#f33e83;transform:rotate(-8deg)}
+.nav{font-size:13px;color:#624e68}.nav a:hover{color:#f13c82}.nav-cta{background:linear-gradient(110deg,#ff4f91,#9b63e8);box-shadow:0 7px 18px #e95d9138}
+.hero{min-height:600px;padding-top:60px;padding-bottom:65px;gap:54px}.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;background:#ffe4ef;color:#c42c70;font-size:10px;letter-spacing:1.5px}
+.hero h1,.intro h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-3px;line-height:.98;color:#2d1735}.hero h1{font-size:clamp(56px,6.3vw,86px);margin:24px 0}.hero h1 em,.section-title h2 em,.wish-inner h2 em,.closing h2 em,.intro h1 em,.aside h3 em{background:linear-gradient(100deg,#ff438b,#9864e9);background-clip:text;color:transparent;font-style:normal}
+.lede,.intro p{font-size:16px;line-height:1.75;color:#6f5c75}.btn{font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:15px 21px;background:linear-gradient(115deg,#ff4f91,#a05fe8);box-shadow:0 9px 22px #d34c8a2b}.btn.soft{background:#fff;color:#a82d68;border:1px solid #f4c8dc;box-shadow:none}.tiny{font-size:12px;color:#8c6b83}
+.art{height:435px;max-width:490px;border-radius:42% 58% 48% 52%;background:linear-gradient(145deg,#ffd6e7,#e8dfff 58%,#fff0d2);box-shadow:0 24px 60px #a44c8420,inset 0 0 0 8px #ffffff60}
+.art-note{font-family:'Outfit',sans-serif;font-style:normal;font-weight:800;color:#9a326a;background:#fff;padding:11px 17px}
+.quote{background:linear-gradient(100deg,#ffe1ed,#f0e5ff);border-block:1px solid #f6d5e6}.quote b{font-family:'Bricolage Grotesque',sans-serif;font-size:22px}.quote p{font-size:13px}
+.section{padding-top:92px;padding-bottom:42px}.section-title h2,.wish-inner h2,.closing h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-1.5px;font-size:clamp(34px,4.5vw,50px)}.section-title>a{font-size:13px;color:#c02d70}
+.cards{gap:20px}.game{min-height:260px;border-radius:27px;padding:25px;border:1px solid #f1dce8;box-shadow:0 10px 30px #6730520a}.game:hover{transform:translateY(-7px) rotate(-.4deg);box-shadow:0 22px 45px #8a3a681e}.g0{background:linear-gradient(145deg,#f2e8ff,#fff)}.g1{background:linear-gradient(145deg,#ffe3ed,#fff)}.g2{background:linear-gradient(145deg,#fff0d7,#fff)}.card-top span{width:52px;height:52px;border-radius:18px;background:#ffffffc9;font-size:27px}.card-top small{font-size:10px;background:#fff;color:#8d4c76}.game h3{font-family:'Bricolage Grotesque',sans-serif;font-size:23px;letter-spacing:-.5px}.game p{font-size:13px;line-height:1.75;color:#715f78}.game>a{font-size:13px;color:#c12d70}.decoration{font-size:115px;color:#fff9}
+.wish-band{background:linear-gradient(110deg,#f4e8ff,#ffe5ef);border-block:1px solid #f3dbe9}.wish-card,.wish-preview{border:1px solid #f5dce8;border-radius:28px;box-shadow:0 20px 50px #813d6419}.wish-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:28px}
+.gift-links>a{border:1px solid #f1dce8;border-radius:20px;box-shadow:0 10px 25px #67305208}.gift-links>a:nth-child(1){background:#eee7ff}.gift-links>a:nth-child(2){background:#ffe6ef}.gift-links>a:nth-child(3){background:#fff0d8}
+.closing{padding-top:100px;padding-bottom:110px}.closing h2{font-size:clamp(42px,6vw,62px)}
+.footer{background:#29172f;padding-top:48px}.footer-inner>div{font-size:12px;gap:19px;flex-wrap:wrap}.footer p{font-size:13px}
+.intro{padding-top:78px;padding-bottom:25px}.intro h1{font-size:clamp(48px,6vw,72px);letter-spacing:-2px}.intro p{font-size:15px}
+.form-card,.aside,.wish-preview,.gift-cards article{border-radius:26px;box-shadow:0 16px 40px #793a6210;border-color:#f1dce8}.form-card h2,.faqs h2,.text-page h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.5px}.form-card input,.form-card textarea,.form-card select{border-radius:14px;padding:14px;background:#fff9fc}.form-card input:focus,.form-card textarea:focus,.form-card select:focus{border-color:#ff4f91;box-shadow:0 0 0 4px #ff4f911c}
+.game-progress,.maze-progress{background:linear-gradient(90deg,#ffe5ef,#eee6ff);border-radius:14px;color:#8d3c70}.question{border-color:#f3dce8}.answer,.maze-choice{border-radius:13px}.answer.chosen,.maze-choice:hover,.maze-choice.selected{background:#ffe2ed;border-color:#ff4f91}
+.notice{background:linear-gradient(110deg,#ffe7f0,#f0e9ff);border:1px solid #f4d7e6;border-radius:22px}
+.truth-wheel{border-radius:25px;background:radial-gradient(circle at 50% 35%,#fff 0,#fff0f7 50%,#eee7ff 100%);border-color:#f1d4e5}
+.wheel-disc{box-shadow:0 12px 28px #9b477533}.truth-spinner{border-radius:22px}
+.gift-cards article{padding:18px}.gift-art{border-radius:18px}
+.faqs details{border-color:#f1dce8}.faqs summary{font-size:14px}
+.love-birds{filter:drop-shadow(0 5px 8px #7d456322)}
+@media(max-width:900px){.hero{gap:24px}.hero h1{font-size:62px}}
+@media(max-width:680px){.header{height:70px}.nav{background:#fff8fb}.hero{padding-top:40px;gap:12px;min-height:auto}.hero h1{font-size:clamp(49px,13vw,68px);letter-spacing:-2px;margin:18px 0}.lede{font-size:14px}.art{height:340px}.section{padding-top:62px}.section-title{align-items:start}.section-title h2{font-size:36px}.game{min-height:220px;padding:22px}.wish-band{padding:48px 0}.intro{padding-top:48px}.intro h1{font-size:clamp(42px,11vw,56px)}.footer-inner>div{gap:12px}.love-birds{width:72px;opacity:.55}}
+@media(prefers-reduced-motion:reduce){.game:hover,.btn:hover{transform:none}}
