@@ -70,3 +70,12 @@
 .maze-controls button{width:42px;height:38px;border:0;border-radius:10px;background:#f7dce9;color:#85456b;font-size:20px;font-weight:800}
 .maze-hint{font-size:11px;text-align:center;color:#86677c}
 @media(max-width:390px){.maze-row{grid-template-columns:repeat(9,23px);gap:3px}.maze-cell{width:23px;height:23px;font-size:10px}}
+
+
+/* Truth-or-Dare: role-aware wheel pointer and selected-player highlight */
+.truth-wheel{overflow:visible;min-height:286px;padding-top:30px}
+.wheel-pointer{position:absolute;z-index:4;top:7px;left:50%;transform:translateX(-50%);font-size:27px;line-height:1;color:#b52f70;text-shadow:0 2px 5px #fff}
+.wheel-pointer.picked-creator{top:50%;left:calc(50% - 113px);right:auto;transform:translateY(-50%);font-size:25px}
+.wheel-pointer.picked-partner{top:50%;right:calc(50% - 113px);left:auto;transform:translateY(-50%);font-size:25px}
+.wheel-name.picked{color:#8d174f;text-shadow:0 0 9px #fff,0 0 13px #fff;font-size:15px;z-index:2}
+.truth-wheel>small{max-width:100%;padding:0 28px}
