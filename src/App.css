@@ -87,3 +87,14 @@
 .store-delete:focus-visible,.store-share:focus-visible{outline:3px solid #e95d9166;outline-offset:2px}
 .store-share{background:#402640;color:#fff;border-color:#402640}
 .store-share:hover{background:#5a385c}
+
+
+/* Gift Store: ensure every secondary action uses the same button system */
+.gift-admin-list article{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.gift-admin-list article>div{flex:1 1 100%;min-width:0}
+.gift-admin-list article .btn{min-width:96px}
+.gift-admin-list article .store-delete{background:#fce8f0;color:#a72e68;border-color:#f4c8dc}
+.gift-admin-list article .store-delete:hover{background:#f8d8e6}
+.gift-admin-list~* .store-share{margin-top:16px}
+.store-product-body .store-share{margin-top:10px}
+.wrap>.store-share{margin:16px 0 30px}
